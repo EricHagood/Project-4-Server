@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_login import LoginManager
 
 import models
-from resources.locations import locaiton
+from resources.locations import location
 
 DEBUG = True
 PORT = 8000
@@ -28,7 +28,7 @@ def after_request(response):
 CORS(location, origins=['http://localhost:3000'], supports_credentials=True)
 
 
-app.register_blueprint(locaiton, url_prefix='/api/v1/locations')
+app.register_blueprint(location, url_prefix='/api/v1/locations')
 
 #Runs the app
 if __name__ == '__main__':

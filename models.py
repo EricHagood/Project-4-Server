@@ -6,12 +6,13 @@ DATABASE = SqliteDatabase('locations.sqlite')
 
 class Location(Model):
     name = CharField()
-    cooedinates = CharField()
+    coordinates = CharField()
+    image = CharField()
     
     class Meta:
         database = DATABASE
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([Locations], safe=True)
+    DATABASE.create_tables([Location], safe=True)
     DATABASE.close()
