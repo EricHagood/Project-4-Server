@@ -8,6 +8,7 @@ class Location(Model):
     name = CharField()
     coordinates = CharField()
     image = CharField()
+    visited = CharField()
     
     class Meta:
         database = DATABASE
