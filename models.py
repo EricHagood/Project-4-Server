@@ -5,9 +5,11 @@ from flask_login import UserMixin
 DATABASE = SqliteDatabase('locations.sqlite')
 
 class Location(Model):
-    name = CharField()
-    coordinates = CharField()
+    city = CharField()
+    latitude = CharField()
+    longitude = CharField()
     image = CharField()
+    description = CharField()
     visited = CharField()
     
     class Meta:
