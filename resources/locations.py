@@ -7,7 +7,9 @@ location = Blueprint('locations', 'location')
 
 @location.route('/', methods=['GET'])
 def get_locations():
-    return jsonify(data={}, status={'code':200, 'message': 'succesful get route'})
+    print('GET call executed')
+    locations = [model_to_dict(location) for location in models.Location.select()]
+    return jsonify(data=locations, status={'code':200, 'message': 'succesful get route'})
 
 @location.route('/', methods=["POST"])
 def save_location():
@@ -16,7 +18,8 @@ def save_location():
     # location = models.Location.create(city=payload['city'], latitude=payload['latitude'], longitude=payload['longitude'], visited=payload['visited'])
     location = models.Location.create(**payload)
     print(location)
-    return jsonify(data=model_to_dict(location), status={'code': 200, 'message':'success'})
+    send_location = model_to_dict(location)
+    return jsonify(data=send_location, headers={'Access-Control-Allow-Origin': '*'} ,status={'code': 200, 'message':'success'})
 
 @location.route('/<id>', methods=["GET"])
 def get_one_location(id):

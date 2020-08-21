@@ -25,6 +25,8 @@ def after_request(response):
     return response
 
 
+
+
 CORS(location, origins=['http://localhost:3000'], supports_credentials=True)
 app.register_blueprint(location, url_prefix='/api/v1/locations')
 
