@@ -12,7 +12,10 @@ def get_locations():
 @location.route('/', methods=["POST"])
 def save_location():
     payload = request.get_json()
+    print(payload)
+    # location = models.Location.create(city=payload['city'], latitude=payload['latitude'], longitude=payload['longitude'], visited=payload['visited'])
     location = models.Location.create(**payload)
+    print(location)
     return jsonify(data=model_to_dict(location), status={'code': 200, 'message':'success'})
 
 @location.route('/<id>', methods=["GET"])

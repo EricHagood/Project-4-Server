@@ -18,4 +18,5 @@ class Location(Model):
 def initialize():
     DATABASE.connect()
     DATABASE.create_tables([Location], safe=True)
+    print("TABLE created")
     DATABASE.close()
