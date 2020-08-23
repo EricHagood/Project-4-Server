@@ -6,7 +6,7 @@ import models
 from resources.locations import location
 
 DEBUG = True
-PORT = 8000
+PORT = process.env.PORT
 
 
 
