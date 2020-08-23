@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, g
 from flask_cors import CORS
 from flask_login import LoginManager
+from decouple import config
+
 
 import models
 from resources.locations import location
-
+import os
 DEBUG = True
-PORT = process.env.PORT
+PORT = config('PORT')
 
 
 
