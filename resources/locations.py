@@ -32,7 +32,7 @@ def update_location(id):
     update_query = models.Location.update(**payload).where(models.Location.id == id)
     update_query.execute()
     updated_location = models.Location.get_by_id(id)
-    return jsonify(data=updated_location, message="succesfully updated location with id {}".format(id), status={'code': 200, 'message': "Success"})
+    return jsonify(data=model_to_dict(updated_location), message="succesfully updated location with id {}".format(id), status={'code': 200, 'message': "Success"})
 
 
 @location.route('/<id>', methods=['DELETE'])
