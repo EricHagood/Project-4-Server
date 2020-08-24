@@ -9,7 +9,7 @@ from resources.locations import location
 import os
 DEBUG = True
 # PORT = config('PORT')
-PORT = 33507
+PORT = 8000
 
 
 
