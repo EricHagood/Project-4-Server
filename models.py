@@ -1,8 +1,13 @@
 from peewee import *
 import datetime
 from flask_login import UserMixin
+from playhouse.db_url import connect
 
-DATABASE = SqliteDatabase('location.sqlite')
+if 'ON_HEROKU' in os.environ:
+    DATABASE = connect(os.environ.get('DATABASE_URL'))
+
+else: 
+    DATABASE = SqliteDatabase('location.sqlite')
 
 class Location(Model):
     city = CharField()
