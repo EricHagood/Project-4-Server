@@ -8,7 +8,8 @@ import models
 from resources.locations import location
 import os
 DEBUG = True
-PORT = config('PORT')
+# PORT = config('PORT')
+PORT = 33507
 
 
 
