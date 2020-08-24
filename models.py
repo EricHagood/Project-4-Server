@@ -2,6 +2,7 @@ from peewee import *
 import datetime
 from flask_login import UserMixin
 from playhouse.db_url import connect
+import os
 
 if 'ON_HEROKU' in os.environ:
     DATABASE = connect(os.environ.get('DATABASE_URL'))
