@@ -10,7 +10,9 @@ import os
 DEBUG = True
 # PORT = config('PORT')
 PORT = int(os.environ.get("PORT", 33507))
-
+if 'ON_HEROKU' in os.environ:
+    print('\non heroku')
+    models.initialize()
 
 
 #Initializing an instance of the flask class
