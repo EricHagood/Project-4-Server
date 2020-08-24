@@ -9,7 +9,7 @@ from resources.locations import location
 import os
 DEBUG = True
 # PORT = config('PORT')
-# PORT = int(os.environ.get("PORT", 33507))
+PORT = int(os.environ.get("PORT", 8000))
 if 'ON_HEROKU' in os.environ:
     print('\non heroku')
     models.initialize()

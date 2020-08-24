@@ -3,6 +3,7 @@ import datetime
 from flask_login import UserMixin
 from playhouse.db_url import connect
 import os
+import time
 
 if 'ON_HEROKU' in os.environ:
     DATABASE = connect(os.environ.get('DATABASE_URL'))
@@ -26,8 +27,10 @@ def initialize():
     print('f')
     DATABASE.create_tables([Location], safe=True)
     print("TABLE created")
+    time.sleep(2)
     # seed() 
     DATABASE.close()
+    
 
 def seed():
     row = {
